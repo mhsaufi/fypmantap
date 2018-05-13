@@ -11,6 +11,7 @@ Route::post('setlist/createsetlist','SetlistController@addSetlist');
 Route::get('viewsong','SetSongsController@show');
 
 Route::get('agreement', 'AgreeController@show');
+Route::post('agreement/{{event}}}', 'AgreeController@update');
 
 Route::get('invoices', 'InvoiceController@show');
 

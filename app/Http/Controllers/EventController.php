@@ -43,18 +43,36 @@ class EventController extends Controller
 
     public function addEvent(Request $request)
     {
-      $event = new Event;
+      // $event = new Event;
 
-      $event->users_id = Auth::id();
-      $event->event_name = $request->event_name;
-      $event->event_date = $request->event_date;
-      $event->event_time = $request->event_time;
-      $event->event_venue = $request->event_venue;
-      $event->event_type = $request->event_type;
-      $event->setlist_id = $request->event_setlist;
-      $event->top = $request->top;
+      // $event->users_id = Auth::id();
+      // $event->event_name = $request->event_name;
+      // $event->event_date = $request->event_date;
+      // $event->event_time = $request->event_time;
+      // $event->event_venue = $request->event_venue;
+      // $event->event_type = $request->event_type;
+      // $event->setlist_id = $request->event_setlist;
+      // $event->top = $request->top;
 
-      $event->save();
+      $id = DB::table('events')->insertGetId(
+        ['users_id' => Auth::id(), 
+         'event_name' => $request->event_name,
+         'event_date' => $request->event_date,
+         'event_time' => $request->event_time,
+         'event_venue' => $request->event_venue,
+         'event_type' => $request->event_type,
+         'setlist_id' => $request->event_setlist]
+      );
+
+      if($request->event_type == "Performance")
+      {
+        DB::table('agreements')->insert(
+          ['user_id' => Auth::id(),
+           'event_id' => $id]
+      );
+      }
+
+      // $event->save();
 
 
       return back();

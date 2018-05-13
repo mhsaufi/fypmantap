@@ -54,12 +54,45 @@
                             </td>
                             <td>{{ $event -> event_name}}</td>
                             <td>{{ $event -> setlist_id}}</td>
-                            <td><span class="label label-success">Confirmed</span></td>
-                            <td><span class="label label-danger">Partially Paid</span></td>
+
+                            @if($event->status === NULL)
+                                <td><a href="{{$event->id}}" data-toggle="modal" data-target="#StatusModal"><span class="label label-danger">Pending</span></a></td>
+                                <td><span class="label label-danger">Partially Paid</span></td>
+                            @else
+                                <td><span class="label label-success">Confirmed</span></td>
+                                <td><span class="label label-danger">Partially Paid</span></td>
+                            @endif
                         </tr>
                         @endforeach
                     </tbody>                
                 </table>
+<div id="StatusModal" class="modal fade" role="dialog">
+  <div class="modal-dialog">
+
+    <!-- Modal content-->
+    <div class="modal-content">
+      <div class="modal-header">
+        <button type="button" class="close" data-dismiss="modal">&times;</button>
+        <center><h4 class="modal-title">Change Status</h4></center>
+      </div>
+        <div class="modal-body">
+            <div id="collapse3" class="body">
+                <form method="POST" action="agreement/{{$event->id}}" class="form-horizontal" id="inline-create song">
+                    {{ csrf_field() }}
+                    <div>
+                        <p><strong><i>If the organizer has confirmed the event, please change the status to proceed with the payment.</i></strong></p>
+                    </div>
+                    <div class="form-group">
+                        <center>
+                            <button class="btn btn-primary" type="submit" value="Confirmed">Confirmed</button>
+                        </center>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+   </div>
+</div>
             </div>
         </div>
     </div>
@@ -81,28 +114,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        @foreach($update as $up)
-                        <tr>
-                            <td><?php
-
-                                   $date = $up->event_date;
-
-                                   echo date('j M', strtotime($date));
-
-                                ?>          
-                            </td>
-                            <td><?php
-
-                                       $time = $up->event_time;
-
-                                       echo date('h:iA', strtotime($time));
-
-                                     ?></td>
-                            <td>{{ $up -> event_name}}</td>
-                            <td><span class="label label-default">None</span></td>
-                            <td><span class="label label-default">None</span></td>
-                        </tr>
-                        @endforeach
+                       
                     </tbody>                
                 </table>
             </div>

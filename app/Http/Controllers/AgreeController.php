@@ -13,4 +13,10 @@ class AgreeController extends Controller
 
     	return view('agreement', compact('agreements'));
     }
+
+    public function update(Request $Request, Event $id){
+
+    	return $id;
+
+    }
 }

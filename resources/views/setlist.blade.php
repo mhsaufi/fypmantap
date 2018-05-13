@@ -161,12 +161,6 @@
                                 <input type="text" name="price" class="form-control col-lg-6" required>
                             </div>
                     </div>
-                    <div class="form-group">
-                        <label class="control-label col-lg-4">Price (RM)</label>
-                            <div class="col-lg-8">
-                                <input type="text" name="price" class="form-control col-lg-6" required>
-                            </div>
-                    </div>
                     <div class="modal-footer">  
                         <div class="form-actions">
                             <div class="col-lg-4">
