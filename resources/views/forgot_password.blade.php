@@ -62,7 +62,7 @@
         
         <hr>
 
-        <div class="tab-content">
+        <div class="tab-content" id="inputemail">
             <div id="register" class="tab-pane active">
                 <!-- <form method="POST" action="{{ route('register') }}"> -->
                     @csrf
@@ -86,6 +86,17 @@
                 </ul>
             </div>
         </div>
+
+        <div class="tab-content" id="emailsent">
+            <div id="register" class="tab-pane active">
+                
+                <p>Your new password has been sent to your email.
+                <a href="{{ route('login') }}">Login </a> with your new password</p>
+
+            </div>
+            <div class="text-center">
+            </div>
+        </div>
     </div>
 </div>
 <!--jQuery -->
@@ -94,6 +105,13 @@
 <!--Bootstrap -->
 <script src="assets/lib/bootstrap/js/bootstrap.js"></script>
 <script type="text/javascript">
+
+    $(document).ready(function(){
+
+        $('#inputemail').show();
+        $('#emailsent').hide();
+
+    });
     
     $('#logo').click(function(){
 
@@ -126,6 +144,9 @@
                     var url_mail = "{{ url('/sendpassword') }}";
 
                     $.get(url_mail+"?email="+ email,function(data){
+
+                        $('#inputemail').hide();
+                        $('#emailsent').show();
 
                     });
                 }
