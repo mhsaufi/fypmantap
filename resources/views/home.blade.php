@@ -77,14 +77,15 @@
       </div>
         <div class="modal-body">
             <div id="collapse3" class="body">
-                <form method="POST" action="agreement/{{$event->id}}" class="form-horizontal" id="inline-create song">
+                <form method="POST" action="agreement/status" class="form-horizontal" id="inline-create song">
                     {{ csrf_field() }}
                     <div>
                         <p><strong><i>If the organizer has confirmed the event, please change the status to proceed with the payment.</i></strong></p>
                     </div>
                     <div class="form-group">
                         <center>
-                            <button class="btn btn-primary" type="submit" value="Confirmed">Confirmed</button>
+                            <input type="hidden" value="{{$event->id}}"> 
+                            <button class="btn btn-primary" type="submit">Confirmed</button>
                         </center>
                     </div>
                 </form>

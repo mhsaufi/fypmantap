@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
+use App\Http\HomeController;
+
 class AgreeController extends Controller
 {
 	public function show(){
@@ -14,9 +16,12 @@ class AgreeController extends Controller
     	return view('agreement', compact('agreements'));
     }
 
-    public function update(Request $Request, Event $id){
+    public function update(Request $request){
 
-    	return $id;
+    	DB::table('agreements')
+            ->where('event_id', $request->event_id)
+            ->update(['status' => "Confirmed"]);
 
+        return back();
     }
 }
