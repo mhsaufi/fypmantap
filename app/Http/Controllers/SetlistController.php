@@ -50,4 +50,14 @@ class SetlistController extends Controller
     	return back();
     }
 
+    public function setlistList(Request $request){
+
+        $setlists = DB::table('setlists')
+                  ->where('users_id', Auth::id())
+                  ->get();
+
+        return $setlists;
+
+    }
+
 }

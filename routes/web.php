@@ -18,10 +18,12 @@ Route::get('booking', 'EventController@showbooking');
 
 Route::get('events', 'EventController@show');
 Route::post('events/add', 'EventController@addEvent');
+Route::get('events/list', 'EventController@listEvent');
+Route::post('events/update', 'EventController@updateEvent');
 Route::get('events/delEvent', 'EventController@delEvent');
 Route::post('events/edit', 'EventController@editEvent');
 
-
+Route::get('setlist/list', 'SetlistController@setlistList');
 
 
 Route::get('/reporting', function () {

@@ -8,7 +8,7 @@
 <body class="login">
     <div class="form-signin">
         <div class="text-center">
-            <img src="assets/img/muger.png" alt="Muger Logo" height="100" width="150">
+            <img src="assets/img/muger.png" alt="Muger Logo" height="100" width="150"  id="logo" style="cursor: pointer;">
         </div>
         <hr>
 
@@ -52,4 +52,14 @@
         </div>
       </div>
     </body>
+
+<script type="text/javascript">
+    
+    $('#logo').click(function(){
+
+        window.location.replace('{{ url('/') }}');
+
+    });
+
+</script>
 @endsection

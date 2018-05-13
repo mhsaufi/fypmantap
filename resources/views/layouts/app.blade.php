@@ -38,16 +38,17 @@
     <link rel="stylesheet" href="assets/lib/animate.css/animate.css">
 
 </head>
+
+<!--jQuery -->
+<script src="assets/lib/jquery/jquery.js"></script>
+
+<!--Bootstrap -->
+<script src="assets/lib/bootstrap/js/bootstrap.js"></script>
 <main>
 
     @yield('content')
 
 </main>    
-        <!--jQuery -->
-        <script src="assets/lib/jquery/jquery.js"></script>
-
-        <!--Bootstrap -->
-        <script src="assets/lib/bootstrap/js/bootstrap.js"></script>
 
 
         <script type="text/javascript">

@@ -5,10 +5,26 @@
 @endsection
 
 @section('content')
-<body class="register">
-    <div class="form-reg">
+<body class="register" style="background-image: url('assets/img/pattern/irongrip.png');">
+
+    <style type="text/css">
+        .form-register {
+            position: absolute;
+            margin-left: 34%;
+            margin-right: 50%;
+            margin-top: 5%;
+            top: 0;
+            bottom: 1;
+            width: 30%;
+            border-radius: 2%;
+            box-shadow: 1px 1px #888888;
+            background: white;
+        }
+    </style>
+
+    <div class="form-register">
         <div class="text-center">
-            <img src="assets/img/muger.png" alt="Muger Logo" height="100" width="150">
+            <img src="assets/img/muger.png" alt="Muger Logo" height="100" width="150" id="logo" style="cursor: pointer;">
         
         <hr>
 
@@ -75,6 +91,15 @@
         </div>
     </div>
 </div>
+<script type="text/javascript">
+    
+    $('#logo').click(function(){
+
+        window.location.replace('{{ url('/') }}');
+
+    });
+
+</script>
 </body>
 </main>    
 @endsection

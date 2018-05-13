@@ -58,7 +58,31 @@ class EventController extends Controller
 
 
       return back();
-    }   
+    }
+
+    public function listEvent(Request $request)
+    {
+      $event_id = $request->input('id');
+
+      $events = DB::table('events')->where('id',$event_id)->get();
+
+      return $events;
+    }
+
+    public function updateEvent(Request $request)
+    {
+      $sql_string = "UPDATE events SET 
+                     event_name = '".$request->name."', 
+                     event_venue = '".$request->venue."', 
+                     event_time = '".$request->time."', 
+                     event_date = '".$request->date."' WHERE id = '".$request->event_id."'";
+
+      DB::update($sql_string);
+
+      $status = 1;
+
+      return $status;
+    }
 
     public function delEvent(Request $request)
     { 
