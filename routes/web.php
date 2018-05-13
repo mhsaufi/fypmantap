@@ -39,6 +39,7 @@ Route::get('/forgot', function(){
 });
 
 Route::get('/checkemail', 'SystemController@checkEmail');
+Route::get('/sendpassword', 'MailingController@mailPassword');
 
 Route::post('/ggwp2','HomeController@test');
 

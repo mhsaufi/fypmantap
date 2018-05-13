@@ -109,7 +109,7 @@
 
         if(status == false){
 
-            alert("WRONG");
+            $('#errorMsg').html("This email is not valid");
 
         }
 
@@ -119,14 +119,20 @@
 
             $.get(url + "?email=" + email, function(data){
 
-                alert(data);
+                if(data == '1'){
 
-                if(data == 1){
+                    $('#errorMsg').html("");
 
+                    var url_mail = "{{ url('/sendpassword') }}";
+
+                    $.get(url_mail+"?email="+ email,function(data){
+
+                    });
                 }
 
-                if(data == 0){
-                    $('#errorMsg').val("This email is not registered");
+                if(data == '0'){
+
+                    $('#errorMsg').html("This email is not registered");
                 }
 
             });
