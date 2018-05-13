@@ -45,7 +45,7 @@
             
             <div class="text-center">
                 <ul class="list-inline">
-                    <li><a class="btn btn-link" href="{{ route('password.request') }}">Forgot Password?</a></li>
+                    <li><a class="btn btn-link" href="{{ url('/forgot') }}">Forgot Password?</a></li>
                     <li><a class="btn btn-link" href="{{ route('register') }}">Register</a></li>
                 </ul>
             </div>

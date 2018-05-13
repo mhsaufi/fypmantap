@@ -15,5 +15,6 @@ class VerifyCsrfToken extends Middleware
         //
         'ggwp2',
         'events/update',
+        '/checkemail',
     ];
 }

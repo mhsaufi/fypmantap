@@ -34,6 +34,12 @@ Route::get('/ggwp', function () {
     return view('ggwp');
 });
 
+Route::get('/forgot', function(){
+	return view('forgot_password');
+});
+
+Route::get('/checkemail', 'SystemController@checkEmail');
+
 Route::post('/ggwp2','HomeController@test');
 
 Auth::routes();
