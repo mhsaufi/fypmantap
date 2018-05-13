@@ -6,6 +6,8 @@ use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Http\Request;
 
+use Carbon\Carbon;
+
 class HomeController extends Controller
 {
     /**
@@ -25,9 +27,16 @@ class HomeController extends Controller
      */
     public function index()
     {
-        $events = DB::table('events')->where('users_id', Auth::id())->get();
+        $events = DB::table('events')
+                  ->where('users_id', Auth::id())
+                  ->where('event_type', "Performance")
+                  ->get();//where date kena ada
 
-        return view('home', compact('events'));
+        $update = DB::table('events')
+                  ->where('users_id', Auth::id())
+                  ->get();// where date kena ada
+
+        return view('home', compact('events', 'update'));
     }
 
     public function test(Request $request){

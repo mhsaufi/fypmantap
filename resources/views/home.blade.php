@@ -81,28 +81,30 @@
                         </tr>
                     </thead>
                     <tbody>
+                        @foreach($update as $up)
                         <tr>
-                            <td>11 Dec</td>
-                            <td>10.00 AM</td>
-                            <td>Practice Sesh</td>
+                            <td><?php
+
+                                   $date = $up->event_date;
+
+                                   echo date('j M', strtotime($date));
+
+                                ?>          
+                            </td>
+                            <td><?php
+
+                                       $time = $up->event_time;
+
+                                       echo date('h:iA', strtotime($time));
+
+                                     ?></td>
+                            <td>{{ $up -> event_name}}</td>
                             <td><span class="label label-default">None</span></td>
                             <td><span class="label label-default">None</span></td>
                         </tr>
-                        <tr>
-                            <td>22 Dec</td>
-                            <td>3.00 PM</td>
-                            <td>Recording Sesh</td>
-                            <td><span class="label label-default">None</span></td>
-                            <td><span class="label label-warning">Unpaid</span></td>
-                        </tr>
-                        <tr>
-                            <td>19 Dec</td>
-                            <td>7.00 AM</td>
-                            <td>Vacation</td>
-                            <td><span class="label label-default">None</span></td>
-                            <td><span class="label label-default">None</span></td>
-                        </tr>
-                    </tbody>                </table>
+                        @endforeach
+                    </tbody>                
+                </table>
             </div>
         </div>
     </div>
